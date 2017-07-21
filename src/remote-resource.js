@@ -143,8 +143,12 @@ function* resource (action) {
     identifier: action.payload.id
   };
 
-  if (action.payload.onCompleteAction) {
-    yield put(action.payload.onCompleteAction);
+  if (action.payload.onCompleteActions) {
+    var actionIndex = 0;
+    while (actionIndex < action.payload.onCompleteActions.length) {
+      yield put(action.payload.onCompleteActions[actionIndex]);
+      actionIndex ++;
+    }
   }
 
   yield put(apiActions.processedResource(resource));
