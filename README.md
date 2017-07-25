@@ -1,13 +1,16 @@
 # simple-remote-resource
 
-apiActions.get({
-      path: 'current-vendor',
-      resourceKey: 'menu',
-      id: 'current-menu',
-      options: {
+Example usage for dispatching an action to GET a remote resource.
+~~~~
+dispatch(apiActions.get({
+    path: 'flights',
+    resourceKey: 'menu',
+    id: '1',
+    options: {
         credentials: 'same-origin'
-      },
-      responseTransformer: function (response) {
+    },
+    responseTransformer: function (response) {
         return response.result;
-      }
-    })
+    }
+}));
+~~~~
